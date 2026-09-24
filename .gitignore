@@ -1,0 +1,20 @@
+# dependencies / build
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Go
+/bin/
+*.exe
+*.test
+*.out
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# sessions ignore
+sessions/01-five-whys/FACILITATOR-GUIDE-five-whys.md

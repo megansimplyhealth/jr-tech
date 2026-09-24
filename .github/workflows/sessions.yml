@@ -1,0 +1,34 @@
+name: sessions
+
+# Keeps every session's exercise code runnable.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  five-whys-typescript:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sessions/01-five-whys/group-a-typescript
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+      - run: npm run replay
+
+  five-whys-go:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sessions/01-five-whys/group-b-go
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - run: go vet ./...
+      - run: go test ./...
