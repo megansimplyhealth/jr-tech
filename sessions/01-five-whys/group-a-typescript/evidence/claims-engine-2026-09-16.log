@@ -1,0 +1,20 @@
+{"ts":"2026-09-16T08:02:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88001","memberId":"M-1001","outcome":"APPROVED","payout":60,"remaining":150,"reason":"Within limit"}
+{"ts":"2026-09-16T08:15:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88002","memberId":"M-1042","outcome":"APPROVED","payout":"80.00","remaining":150,"reason":"Within limit"}
+{"ts":"2026-09-16T08:31:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88003","memberId":"M-1019","outcome":"APPROVED","payout":45.5,"remaining":100,"reason":"Within limit"}
+{"ts":"2026-09-16T08:47:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88004","memberId":"M-1103","outcome":"APPROVED","payout":100,"remaining":150,"reason":"Within limit"}
+{"ts":"2026-09-16T09:05:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88005","memberId":"M-1077","outcome":"APPROVED","payout":"150.00","remaining":150,"reason":"Within limit"}
+{"ts":"2026-09-16T09:12:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88006","memberId":"M-1001","outcome":"APPROVED","payout":50,"remaining":90,"reason":"Within limit"}
+{"ts":"2026-09-16T09:40:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88007","memberId":"M-1042","outcome":"APPROVED","payout":"50.00","remaining":70,"reason":"Within limit"}
+{"ts":"2026-09-16T10:03:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88008","memberId":"M-1103","outcome":"APPROVED","payout":"30.00","remaining":50,"reason":"Within limit"}
+{"ts":"2026-09-16T10:22:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88009","memberId":"M-1019","outcome":"APPROVED","payout":40,"remaining":54.5,"reason":"Within limit"}
+{"ts":"2026-09-16T10:48:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88010","memberId":"M-1150","outcome":"APPROVED","payout":"65.00","remaining":200,"reason":"Within limit"}
+{"ts":"2026-09-16T11:10:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88011","memberId":"M-1001","outcome":"PARTIAL","payout":40,"remaining":40,"reason":"Only £40 of £150 dental limit left"}
+{"ts":"2026-09-16T11:34:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88012","memberId":"M-1042","outcome":"APPROVED","payout":"45.00","remaining":null,"reason":"Within limit"}
+{"ts":"2026-09-16T12:01:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88013","memberId":"M-1077","outcome":"REJECTED","payout":0,"remaining":0,"reason":"Annual dental limit of £150 reached"}
+{"ts":"2026-09-16T12:26:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88014","memberId":"M-1103","outcome":"REJECTED","payout":0,"remaining":-9880,"reason":"Annual dental limit of £150 reached"}
+{"ts":"2026-09-16T13:05:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88015","memberId":"M-1019","outcome":"PARTIAL","payout":14.5,"remaining":14.5,"reason":"Only £14.5 of £100 optical limit left"}
+{"ts":"2026-09-16T13:40:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88016","memberId":"M-1150","outcome":"APPROVED","payout":"70.00","remaining":135,"reason":"Within limit"}
+{"ts":"2026-09-16T14:12:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88017","memberId":"M-1042","outcome":"APPROVED","payout":"60.00","remaining":null,"reason":"Within limit"}
+{"ts":"2026-09-16T14:55:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88018","memberId":"M-1150","outcome":"APPROVED","payout":"90.00","remaining":null,"reason":"Within limit"}
+{"ts":"2026-09-16T15:30:00Z","level":"info","msg":"claim.decided","channel":"web","claimId":"CLM-88019","memberId":"M-1188","outcome":"APPROVED","payout":120,"remaining":200,"reason":"Within limit"}
+{"ts":"2026-09-16T16:10:00Z","level":"info","msg":"claim.decided","channel":"mobile","claimId":"CLM-88020","memberId":"M-1150","outcome":"APPROVED","payout":"55.00","remaining":null,"reason":"Within limit"}

@@ -1,0 +1,18 @@
+$ git log --oneline --since=2026-06-01 -- internal/payout/
+
+f3c1e07  (Tue 15 Sep)  perf: reduce PayFast timeout 10s -> 2s to free workers (#530)
+b8a24d9  (Tue 18 Aug)  fix: retry PayFast calls on failure - INC-2250 hotfix (#498)
+6e0f5a1  (Mon 03 Aug)  chore: go 1.22
+2d9c7b3  (Thu 09 Jul)  feat: structured logging for payouts (#455)
+a11f0e8  (Tue 16 Jun)  feat: payout client for PayFast v1 API (#431)
+
+$ git show f3c1e07 -- internal/payout/client.go
+-	ProviderTimeout = 10 * time.Second
++	// ProviderTimeout was 10s. Reduced in #530 so workers aren't tied up when
++	// PayFast is slow (see INC-2250). Staging p95 is ~180ms so 2s is plenty.
++	ProviderTimeout = 2 * time.Second
+
+$ git show b8a24d9 --stat
+ internal/payout/client.go      | 31 ++++++++++++++++++-------
+ internal/payout/client_test.go | 22 ++++++++++++++++++
+ 2 files changed, 44 insertions(+), 9 deletions(-)

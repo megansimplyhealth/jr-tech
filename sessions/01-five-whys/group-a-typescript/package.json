@@ -1,0 +1,21 @@
+{
+  "name": "brightcare-claims-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "5 Whys session - Group A incident pack (TypeScript)",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "replay": "node --experimental-strip-types --no-warnings src/replay.ts",
+    "test": "node --experimental-strip-types --no-warnings --test test/limits.test.ts test/incident.test.ts",
+    "whys": "node --experimental-strip-types --no-warnings tools/whys.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "//": "npm install is only needed for `npm run typecheck`. Everything else runs with plain Node 22.6+."
+}

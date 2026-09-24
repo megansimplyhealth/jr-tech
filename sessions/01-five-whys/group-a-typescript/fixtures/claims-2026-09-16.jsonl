@@ -1,0 +1,20 @@
+{"id": "CLM-88001", "memberId": "M-1001", "benefit": "dental", "amount": 60, "submittedAt": "2026-09-16T08:02:00Z", "channel": "web"}
+{"schemaVersion": 2, "id": "CLM-88002", "memberId": "M-1042", "benefit": "dental", "amount": "80.00", "submittedAt": "2026-09-16T08:15:00Z", "channel": "mobile", "currency": "GBP"}
+{"id": "CLM-88003", "memberId": "M-1019", "benefit": "optical", "amount": 45.5, "submittedAt": "2026-09-16T08:31:00Z", "channel": "web"}
+{"id": "CLM-88004", "memberId": "M-1103", "benefit": "dental", "amount": 100, "submittedAt": "2026-09-16T08:47:00Z", "channel": "web"}
+{"schemaVersion": 2, "id": "CLM-88005", "memberId": "M-1077", "benefit": "dental", "amount": "150.00", "submittedAt": "2026-09-16T09:05:00Z", "channel": "mobile", "currency": "GBP"}
+{"id": "CLM-88006", "memberId": "M-1001", "benefit": "dental", "amount": 50, "submittedAt": "2026-09-16T09:12:00Z", "channel": "web"}
+{"schemaVersion": 2, "id": "CLM-88007", "memberId": "M-1042", "benefit": "dental", "amount": "50.00", "submittedAt": "2026-09-16T09:40:00Z", "channel": "mobile", "currency": "GBP"}
+{"schemaVersion": 2, "id": "CLM-88008", "memberId": "M-1103", "benefit": "dental", "amount": "30.00", "submittedAt": "2026-09-16T10:03:00Z", "channel": "mobile", "currency": "GBP"}
+{"id": "CLM-88009", "memberId": "M-1019", "benefit": "optical", "amount": 40, "submittedAt": "2026-09-16T10:22:00Z", "channel": "web"}
+{"schemaVersion": 2, "id": "CLM-88010", "memberId": "M-1150", "benefit": "physio", "amount": "65.00", "submittedAt": "2026-09-16T10:48:00Z", "channel": "mobile", "currency": "GBP"}
+{"id": "CLM-88011", "memberId": "M-1001", "benefit": "dental", "amount": 45, "submittedAt": "2026-09-16T11:10:00Z", "channel": "web"}
+{"schemaVersion": 2, "id": "CLM-88012", "memberId": "M-1042", "benefit": "dental", "amount": "45.00", "submittedAt": "2026-09-16T11:34:00Z", "channel": "mobile", "currency": "GBP"}
+{"schemaVersion": 2, "id": "CLM-88013", "memberId": "M-1077", "benefit": "dental", "amount": "95.00", "submittedAt": "2026-09-16T12:01:00Z", "channel": "mobile", "currency": "GBP"}
+{"schemaVersion": 2, "id": "CLM-88014", "memberId": "M-1103", "benefit": "dental", "amount": "40.00", "submittedAt": "2026-09-16T12:26:00Z", "channel": "mobile", "currency": "GBP"}
+{"id": "CLM-88015", "memberId": "M-1019", "benefit": "optical", "amount": 30, "submittedAt": "2026-09-16T13:05:00Z", "channel": "web"}
+{"schemaVersion": 2, "id": "CLM-88016", "memberId": "M-1150", "benefit": "physio", "amount": "70.00", "submittedAt": "2026-09-16T13:40:00Z", "channel": "mobile", "currency": "GBP"}
+{"schemaVersion": 2, "id": "CLM-88017", "memberId": "M-1042", "benefit": "dental", "amount": "60.00", "submittedAt": "2026-09-16T14:12:00Z", "channel": "mobile", "currency": "GBP"}
+{"schemaVersion": 2, "id": "CLM-88018", "memberId": "M-1150", "benefit": "physio", "amount": "90.00", "submittedAt": "2026-09-16T14:55:00Z", "channel": "mobile", "currency": "GBP"}
+{"id": "CLM-88019", "memberId": "M-1188", "benefit": "physio", "amount": 120, "submittedAt": "2026-09-16T15:30:00Z", "channel": "web"}
+{"schemaVersion": 2, "id": "CLM-88020", "memberId": "M-1150", "benefit": "physio", "amount": "55.00", "submittedAt": "2026-09-16T16:10:00Z", "channel": "mobile", "currency": "GBP"}

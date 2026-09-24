@@ -1,0 +1,25 @@
+$ git log --oneline --since=2026-06-01 -- claims-engine/
+
+e41c9a2  (Tue 15 Sep)  feat: accept mobile v2 claims on /claims endpoint (#412)
+7bd0f13  (Thu 10 Sep)  chore: bump node to 22 LTS
+c2a88e5  (Mon 24 Aug)  fix: optical limit should be £100 not £120 (#398)
+91fe0b7  (Wed 29 Jul)  refactor: move limit calc into limits.ts, add unit tests (#371)
+3aa6d21  (Fri 03 Jul)  feat: log every decision as structured JSON (#355)
+0d1e4c8  (Tue 16 Jun)  feat: partial payouts when claim exceeds remaining limit (#340)
+
+$ git show e41c9a2 --stat
+ src/intake.ts   |  7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+$ git show e41c9a2 -- src/intake.ts
+-  if (typeof raw.amount !== "number" || raw.channel !== "web") {
+-    throw new Error("Invalid claim");
+-  }
++  if (!raw.id || !raw.memberId || !raw.benefit) {
++    throw new Error("Invalid claim: missing id, memberId or benefit");
++  }
+
+$ git log --oneline --since=2026-08-01 -- mobile-app/src/api/   (mobile repo)
+
+a90d2f1  (Fri 11 Sep)  feat(claims): v2 payload - send money as decimal strings (MOB-88)
+55c01be  (Wed 02 Sep)  feat(claims): new claims journey behind flag (MOB-80)
