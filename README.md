@@ -8,6 +8,7 @@ exercises for each session, in one place.
 | #   | Session                              | Topic                                          | Languages      | Length |
 | --- | ------------------------------------ | ---------------------------------------------- | -------------- | ------ |
 | 01  | [The 5 Whys](sessions/01-five-whys/) | Root cause analysis, blameless incident review | TypeScript, Go | 45 min |
+| 02  | [Plan, Gate, Build](sessions/02-plan-gate-build/) | Working with AI: plan first, human review gate | Any (browser AI) | 45 min |
 
 ## How this repo works
 
