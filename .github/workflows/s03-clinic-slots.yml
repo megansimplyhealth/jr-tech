@@ -36,7 +36,7 @@ jobs:
 
   test:
     name: Unit tests
-    needs: vets
+    needs: vet
     # Tests take too long to run on every PR. They run once it's merged. PK 02/10
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
