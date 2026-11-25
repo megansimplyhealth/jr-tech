@@ -7,7 +7,7 @@ still be wrong, and how to add a gate that keeps secrets out of the code.
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **Length** | 45 minutes                                                                                                                        |
 | **Who**    | Junior devs + QEs, in 2 mixed groups                                                                                              |
-| **Slides** | To add                                                                                                                            |
+| **Slides** | [Commit to Production.pptx](Commit%20to%20Production.pptx)                                                                        |
 | **Needs**  | A GitHub account that can push branches to this repo · optional: Node 22.6+ (Group A) or Go 1.22+ (Group B) to run things locally |
 
 ## Plan
