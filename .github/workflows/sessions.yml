@@ -1,10 +1,18 @@
 name: sessions
 
 # Keeps every session's exercise code runnable.
+# Only runs when session 01's code (or this file) changes, so it doesn't
+# show up on session 03's PRs, which have their own workflows.
 on:
   push:
     branches: [main]
+    paths:
+      - "sessions/01-five-whys/**"
+      - ".github/workflows/sessions.yml"
   pull_request:
+    paths:
+      - "sessions/01-five-whys/**"
+      - ".github/workflows/sessions.yml"
 
 jobs:
   five-whys-typescript:
