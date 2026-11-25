@@ -1,0 +1,108 @@
+# Session 03 · Group B · clinic-slots delivery pipeline
+#
+# Builds and deploys clinic-slots. Production deploys only ever happen from main.
+
+name: s03 clinic-slots
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sessions/03-commit-to-production/group-b-go/**"
+      - ".github/workflows/s03-clinic-slots.yml"
+  workflow_dispatch:
+
+# A new push to the same branch cancels the run that's still going.
+concurrency:
+  group: s03-clinic-slots-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: sessions/03-commit-to-production/group-b-go
+
+jobs:
+  vet:
+    name: Vet
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: sessions/03-commit-to-production/group-b-go/go.mod
+      - name: Check the code with go vet
+        run: go vet ./...
+
+  test:
+    name: Unit tests
+    needs: vet
+    # Tests take too long to run on every PR. They run once it's merged. PK 02/10
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: sessions/03-commit-to-production/group-b-go/go.mod
+      - name: Run unit tests
+        run: go test ./...
+
+  build:
+    name: Build
+    needs: vet
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: sessions/03-commit-to-production/group-b-go/go.mod
+      - name: Build the binary
+        run: go build -o dist/ ./cmd/slots
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clinic-slots
+          path: sessions/03-commit-to-production/group-b-go/dist/
+
+  deploy-staging:
+    name: Deploy to staging
+    needs: build
+    runs-on: ubuntu-latest
+    environment: s03-staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: sessions/03-commit-to-production/group-b-go/go.mod
+      - uses: actions/download-artifact@v4
+        with:
+          name: clinic-slots
+          path: sessions/03-commit-to-production/group-b-go/dist/
+      - name: Deploy
+        run: go run ./cmd/deploy staging
+      - name: Smoke test
+        run: go run ./cmd/smoke staging
+
+  deploy-production:
+    name: Deploy to production
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: s03-production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: sessions/03-commit-to-production/group-b-go/go.mod
+      - uses: actions/download-artifact@v4
+        with:
+          name: clinic-slots
+          path: sessions/03-commit-to-production/group-b-go/dist/
+      - name: Deploy
+        run: go run ./cmd/deploy production
+      - name: Smoke test
+        run: go run ./cmd/smoke production

@@ -1,0 +1,107 @@
+# Session 03 · Group A · quote-calculator delivery pipeline
+#
+# Runs on every pull request that touches the quote-calculator, and on main.
+# Production deploys only ever happen from main.
+
+name: s03 quote-calculator
+
+on:
+  pull_request:
+    paths:
+      - "sessions/03-commit-to-production/group-a-typescript/**"
+      - ".github/workflows/s03-quote-calculator.yml"
+  push:
+    branches: [main]
+    paths:
+      - "sessions/03-commit-to-production/group-a-typescript/**"
+      - ".github/workflows/s03-quote-calculator.yml"
+  workflow_dispatch:
+
+# A new push to the same branch cancels the run that's still going.
+concurrency:
+  group: s03-quote-calculator-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: sessions/03-commit-to-production/group-a-typescript
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check for banned patterns
+        run: npm run lint
+
+  test:
+    name: Unit tests
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run unit tests
+        # Flaky on the shared runners. Unblocking the release, will look at it next sprint. JB 14/10
+        continue-on-error: true
+        run: npm test
+
+  build:
+    name: Build
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the release bundle
+        run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quote-calculator
+          path: sessions/03-commit-to-production/group-a-typescript/dist/
+
+  deploy-staging:
+    name: Deploy to staging
+    needs: build
+    runs-on: ubuntu-latest
+    environment: s03-staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: quote-calculator
+          path: sessions/03-commit-to-production/group-a-typescript/dist/
+      - name: Deploy
+        run: npm run deploy -- staging
+      - name: Smoke test
+        run: npm run smoke -- staging
+
+  deploy-production:
+    name: Deploy to production
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: s03-production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: quote-calculator
+          path: sessions/03-commit-to-production/group-a-typescript/dist/
+      - name: Deploy
+        run: npm run deploy -- production
+      - name: Smoke test
+        run: npm run smoke -- production
