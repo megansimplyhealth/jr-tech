@@ -10,6 +10,11 @@ on:
     paths:
       - "sessions/03-commit-to-production/group-b-go/**"
       - ".github/workflows/s03-clinic-slots.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "sessions/03-commit-to-production/group-b-go/**"
+      - ".github/workflows/s03-clinic-slots.yml"
   workflow_dispatch:
 
 # A new push to the same branch cancels the run that's still going.
@@ -37,8 +42,6 @@ jobs:
   test:
     name: Unit tests
     needs: vet
-    # Tests take too long to run on every PR. They run once it's merged. PK 02/10
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +54,7 @@ jobs:
 
   build:
     name: Build
-    needs: vet
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
