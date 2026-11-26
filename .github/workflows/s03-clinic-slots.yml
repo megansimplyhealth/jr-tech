@@ -42,8 +42,6 @@ jobs:
   test:
     name: Unit tests
     needs: vet
-    # Tests take too long to run on every PR. They run once it's merged. PK 02/10
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -56,7 +54,7 @@ jobs:
 
   build:
     name: Build
-    needs: vet
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
