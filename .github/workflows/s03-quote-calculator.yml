@@ -49,7 +49,7 @@ jobs:
           node-version: 22
       - name: Run unit tests
         # Flaky on the shared runners. Unblocking the release, will look at it next sprint. JB 14/10
-        continue-on-error: true
+        continue-on-error: false
         run: npm test
 
   build:
