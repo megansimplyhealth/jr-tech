@@ -31,6 +31,7 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -48,12 +49,12 @@ jobs:
           node-version: 22
       - name: Run unit tests
         # Flaky on the shared runners. Unblocking the release, will look at it next sprint. JB 14/10
-        continue-on-error: true
+        continue-on-error: false
         run: npm test
 
   build:
     name: Build
-    needs: lint
+    needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
